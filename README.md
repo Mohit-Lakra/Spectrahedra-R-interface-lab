@@ -2,22 +2,12 @@
 This repo is a small lab space for my GSoC 2026 work on GeomScale’s “Spectrahedra R-interface” project.
 
 Files:
-- `day1.md` — environment setup + first successful build/run on macOS
-- `easy-test.md` — easy test notes (compile + run CRAN volesti)
+- `journey/day1.md` — environment setup + first successful build/run on macOS
+- `tests/easy.md` — easy test notes (compile + run CRAN volesti)
 
 Plan (short):
 - keep notes small and reproducible
 - focus on understanding the R ↔ C++ boundary and then implementing the hard test change spectrahedra-lab
-
-This repo is a small lab space for my GSoC 2026 work on GeomScale’s “Spectrahedra R-interface” project.
-
-Files:
-- `day1.md` — environment setup + first successful build/run on macOS
-- `easy-test.md` — easy test notes (compile + run CRAN volesti)
-
-Plan (short):
-- keep notes small and reproducible
-- focus on understanding the R ↔ C++ boundary and then implementing the hard test change
 
 # PRs
 
