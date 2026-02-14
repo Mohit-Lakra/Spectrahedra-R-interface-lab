@@ -60,16 +60,6 @@ The output checks use `capture.output()` because the C++ side prints via `Rprint
 testthat::test_file("tests/testthat/test_spectrahedron_volume.R", load_package = "source")
 ```
 
-### Why `testthat::test_file(...)` failed without `load_package`
-
-If you run:
-
-```r
-testthat::test_file("tests/testthat/test_spectrahedron_volume.R")
-```
-
-testthat does not automatically load the package, so exported functions/classes (like `Spectrahedron()`) may not exist in that session. Using `load_package = "source"` (or running `devtools::test()`) ensures the package is loaded first.
-
 ## What I saw (local output)
 
 - `devtools::test()` passed the full suite (including the new spectrahedron test).
