@@ -1,8 +1,13 @@
 # Spectrahedra-R-interface-lab
 This repo is a small lab space for my GSoC 2026 work on GeomScale’s “Spectrahedra R-interface” project.
 
+## Progress
+
+- [x] Easy test: built and ran the CRAN `volesti` package on macOS (arm64)
+- [x] Hard test: small extension in `Rvolesti` + focused unit test (PR open)
+
+
 Files:
-- `journey/day1.md` — environment setup + first successful build/run on macOS
 - `tests/easy.md` — easy test notes (compile + run CRAN volesti)
 
 Plan (short):
@@ -18,3 +23,4 @@ Plan (short):
 
 ## GeomScale/Rvolesti
 - #36 — https://github.com/GeomScale/Rvolesti/pull/36
+- Hard test PR: GeomScale/Rvolesti — PR #37
