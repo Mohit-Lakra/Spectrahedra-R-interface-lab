@@ -8,6 +8,7 @@ This workspace tracks the exploratory steps for my GSoC 2026 proposal on extendi
 ## Repository Layout
 - `plan/plan.md` — end-to-end delivery plan covering deliverables, code touchpoints, validation, and schedule
 - `tests/easy.md` — reproducible log for the “easy” GSoC qualification task (compile + run CRAN `volesti`)
+- `tests/hard.md` — reproducible log for the “hard” GSoC qualification task
 - `README.md` — high-level context, progress tracking, and links to upstream pull requests
 
 ## Working Principles
@@ -25,7 +26,3 @@ This workspace tracks the exploratory steps for my GSoC 2026 proposal on extendi
 - [#36](https://github.com/GeomScale/Rvolesti/pull/36)
 - [#37](https://github.com/GeomScale/Rvolesti/pull/37)
 
-## Next Checks
-- [x] Validate the spectrahedron sampling and volume entry points end-to-end on a small SDPA fixture
-- [ ] Wire the documentation (README, Rd, NEWS) so users know how to supply matrices, seeds, and verbosity flags
-- [ ] Re-run `R CMD check --as-cran` on macOS + Ubuntu once the dispatch and helpers land
