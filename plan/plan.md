@@ -38,6 +38,15 @@ Working outline for delivering spectrahedron support without disturbing existing
    - Return a matrix with `d` rows and `n` columns, matching the expectations from the polytope path.
 4. Run `Rcpp::compileAttributes()` once the files exist so `R/RcppExports.R` and `src/RcppExports.cpp` stay synchronized.
 
+### C++ Layer Mapping
+
+| R function | Rcpp entry point | Existing volesti function(s) | Primary headers / references |
+| --- | --- | --- | --- |
+| `volume(Spectrahedron)` | `volume_spectrahedra()` | `volesti::volume(Spectrahedron<MT>, ...)` as showcased in `examples/volume_spectrahedron/main.cpp` | `include/convex_bodies/spectrahedra/spectrahedron.h`, `include/convex_bodies/spectrahedra/LMI.h` |
+| `sample_points(Spectrahedron)` | `sample_points_spectrahedra()` | Accelerated billiard / RDHR walk over `Spectrahedron` (same kernels used by `examples/volume_spectrahedron`) | `include/convex_bodies/spectrahedra/spectrahedron.h`, `include/random_walks/accelerated_billiard_walk.hpp` |
+
+This table keeps the mentor-facing plan honest: the Rcpp glue simply exposes the already-working volesti kernels rather than rebuilding spectrahedron math from scratch. I’ll confirm the exact template instantiations with the mentor, but the mapping above captures the intended call flow starting from `R/volume.Spectrahedron` and `R/sample_points.Spectrahedron` down to the existing C++ implementations.
+
 ## Testing Strategy
 - **Dispatch coverage:** `tests/testthat/test_spectrahedron_dispatch.R` builds a micro spectrahedron (e.g., the 3×3 example from the vignette) and asserts that `sample_points()` returns a matrix and `volume()` responds without noise; initially the expectations can target error messages until the C++ glue lands.
 - **Feasibility checks:** `tests/testthat/test_spectrahedron_feasibility.R` loads a small fixture from `inst/extdata`, draws a handful of points with a fixed seed, rebuilds `A0 + x1 A1 + ... + xn An` in R, and confirms the maximum eigenvalue is ≤ `1e-8` to satisfy the negative semidefinite condition. Keep `n ≤ 10` to stay CRAN-friendly, gating heavier runs with `skip_on_cran()` if needed.

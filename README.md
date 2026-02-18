@@ -26,6 +26,6 @@ This workspace tracks the exploratory steps for my GSoC 2026 proposal on extendi
 - [#37](https://github.com/GeomScale/Rvolesti/pull/37)
 
 ## Next Checks
-k Validate the spectrahedron sampling and volume entry points end-to-end on a small SDPA fixture
-- Wire the documentation (README, Rd, NEWS) so users know how to supply matrices, seeds, and verbosity flags
-- Re-run `R CMD check --as-cran` on macOS + Ubuntu once the dispatch and helpers land
+- [x] Validate the spectrahedron sampling and volume entry points end-to-end on a small SDPA fixture
+- [ ] Wire the documentation (README, Rd, NEWS) so users know how to supply matrices, seeds, and verbosity flags
+- [ ] Re-run `R CMD check --as-cran` on macOS + Ubuntu once the dispatch and helpers land
