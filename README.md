@@ -1,26 +1,31 @@
-# Spectrahedra-R-interface-lab
-This repo is a small lab space for my GSoC 2026 work on GeomScale’s “Spectrahedra R-interface” project.
+# Spectrahedra R Interface Lab
+This workspace tracks the exploratory steps for my GSoC 2026 proposal on extending GeomScale’s tooling so that `Rvolesti` can accept spectrahedra alongside the existing polytopes and zonotopes.
 
-## Progress
+## Status Snapshot
+- Built and exercised the CRAN `volesti` release locally on macOS (arm64)
+- Submitted a small `Rvolesti` extension plus the supporting focused unit test
 
-- [x] Easy test: built and ran the CRAN `volesti` package on macOS (arm64)
-- [x] Hard test: small extension in `Rvolesti` + focused unit test (PR open)
+## Repository Layout
+- `plan/plan.md` — end-to-end delivery plan covering deliverables, code touchpoints, validation, and schedule
+- `tests/easy.md` — reproducible log for the “easy” GSoC qualification task (compile + run CRAN `volesti`)
+- `README.md` — high-level context, progress tracking, and links to upstream pull requests
 
+## Working Principles
+1. Keep notes concise, reproducible, and free of hidden steps.
+2. Touch the smallest possible surface in `Rvolesti`: add spectrahedron-specific dispatch rather than rewriting existing polytope code paths.
+3. Land tests, docs, and NEWS entries alongside code so `R CMD check --as-cran` stays quiet.
 
-Files:
-- `tests/easy.md` — easy test notes (compile + run CRAN volesti)
+## Upstream Pull Requests
+### GeomScale/volesti
+- [#439](https://github.com/GeomScale/volesti/pull/439)
+- [#441](https://github.com/GeomScale/volesti/pull/441)
+- [#375](https://github.com/GeomScale/volesti/pull/375)
 
-Plan (short):
-- keep notes small and reproducible
-- focus on understanding the R ↔ C++ boundary and then implementing the hard test change spectrahedra-lab
+### GeomScale/Rvolesti
+- [#36](https://github.com/GeomScale/Rvolesti/pull/36)
+- [#37](https://github.com/GeomScale/Rvolesti/pull/37)
 
-# PRs
-
-## GeomScale/volesti
-- #439 — https://github.com/GeomScale/volesti/pull/439
-- #441 — https://github.com/GeomScale/volesti/pull/441
-- #375 — https://github.com/GeomScale/volesti/pull/375
-
-## GeomScale/Rvolesti
-- #36 — https://github.com/GeomScale/Rvolesti/pull/36
-- Hard test PR: GeomScale/Rvolesti — PR #37
+## Next Checks
+k Validate the spectrahedron sampling and volume entry points end-to-end on a small SDPA fixture
+- Wire the documentation (README, Rd, NEWS) so users know how to supply matrices, seeds, and verbosity flags
+- Re-run `R CMD check --as-cran` on macOS + Ubuntu once the dispatch and helpers land
