@@ -298,5 +298,3 @@ Five groups in `tests/testthat/test_spectrahedron.R`:
 3. **Sampling** — shape, finite values, reproducibility with same seed, different seeds produce different output, both walk types
 4. **Volume** — positive scalar, plausible range against a known reference value (2D ellipse, volume ≈ π), reproducibility
 5. **Higher dimensions** — bounded 3D and 5D fixtures; the 5D fixture is constructed carefully to ensure boundedness
-
----
